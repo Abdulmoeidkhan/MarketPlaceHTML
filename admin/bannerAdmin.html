@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Calibre.store is your one stop shopping hub, at calibre.store we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
+        Calibre.store is a Pakistani online shopping hub that provides quality products at the lowest of prices all over Pakistan, protecting both, the money and the privacy of their customers. Calibre.store has the latest fashion items to give u the styling edge that you have always desired.">
+    <title>Sidebar template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+
+    <div style="padding:15%">
+        <a href="./admin.html">Main Admin Page</a>
+        <button type="button" class="btn btn-secondary" style="cursor: pointer;margin-left: 200px;" onclick="signingOut()">Logout</button>
+        <form class="will-validate" action="#">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip01">Image Link</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Image Link" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" onclick="submitBanner()">Submit Banner</button>
+        </form>
+        <br />
+        <button class="btn btn-primary" type="submit" onclick="fetchBannerData()">Fetch</button>
+        <hr />
+        <div id="list-render">
+        </div>
+    </div>
+
+    <script src="./bannerAdmin.js"></script>
+</body>
+
+</html>

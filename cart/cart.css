@@ -1,0 +1,120 @@
+@media screen and (min-width: 601px) {
+    .totalOfCard {
+        padding-left: 7% !important;
+    }
+    .column {
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 300px;
+        /* Should be removed. Only for demonstration */
+    }
+    .column1 {
+        float: left;
+        width: 30%;
+        padding: 10px;
+        margin-top: 20px;
+        height: 300px;
+        /* Should be removed. Only for demonstration */
+    }
+    .row {
+        margin: 30px 20px
+    }
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td {
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+    .actions .btn-info {
+        float: left;
+    }
+    .actions .btn-danger {
+        float: right;
+    }
+    table#cart thead {
+        display: none;
+    }
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 200px;
+    }
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+    table#cart tfoot td {
+        display: block;
+    }
+    table#cart tfoot td .btn {
+        display: block;
+    }
+    .column {
+        float: left;
+        width: 100%;
+        padding: 10px;
+        height: 300px;
+        /* Should be removed. Only for demonstration */
+    }
+    .column1 {
+        float: left;
+        width: 100%;
+        padding: 10px;
+        height: 300px;
+        /* Should be removed. Only for demonstration */
+    }
+    .row {
+        margin: 0 auto
+    }
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+    .hidden-xs{
+        margin:0 auto
+    }
+    
+}
+
+.img-responsive {
+    max-width: 130px;
+}
+
+.form-group {
+    margin-top: 15px;
+}
+
+.button-class {
+    margin: 0 auto;
+}
+.container-fluid{
+    margin-bottom: 200px;
+}

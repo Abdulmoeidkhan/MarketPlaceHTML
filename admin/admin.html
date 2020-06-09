@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Calibre.Culture is your one stop shopping hub, at calibre.store we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
+        Calibre.store is a Pakistani online shopping hub that provides quality products at the lowest of prices all over Pakistan, protecting both, the money and the privacy of their customers. Calibre.store has the latest fashion items to give u the styling edge that you have always desired.">
+    <title>Calibre.Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+
+
+<body onload="fetchStaticData()">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+
+    <div style="padding:15%">
+        <a href="./bannerAdmin.html">Banner Page</a>
+        <a href="./staticDataAdmin.html">Static Data Admin</a>
+        <button type="button" class="btn btn-secondary" style="cursor: pointer;margin-left: 200px;" onclick="signingOut()">Logout</button>
+        <form class="will-validate" action="#">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip01">Image Link 1 (Main)</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Image Link" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip13">Image Link 2</label>
+                    <input type="text" class="form-control" id="validationTooltip13" placeholder="Image Link" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip14">Image Link 3</label>
+                    <input type="text" class="form-control" id="validationTooltip14" placeholder="Image Link" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip15">Image Link 4</label>
+                    <input type="text" class="form-control" id="validationTooltip15" placeholder="Image Link" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip02">Product Name</label>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Product Name"
+                        required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip03">Price</label>
+                    <input type="number" class="form-control" id="validationTooltip03" placeholder="Price" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip11">Product Heading</label>
+                    <input type="text" class="form-control" id="validationTooltip11" placeholder="Product Heading" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip12">Product Description</label>
+                    <input type="text" class="form-control" id="validationTooltip12" placeholder="Product Description" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip04">Sizes/Quantity</label>
+                    <input type="text" class="form-control" id="validationTooltip04" placeholder="Sizes/Quantity"
+                        required>
+                    <div class="invalid-tooltip">
+                        Please provide a valid Sizes Quantity.
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationTooltip05">Product Code</label>
+                <input type="text" class="form-control" id="validationTooltip05" placeholder="Product Code" value="" onkeyup="letterCap(this)"
+                        required>
+                    <div class="invalid-tooltip">
+                        Please provide a valid product code.
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationTooltip06">Stock</label>
+                    <select class="custom-select" id="validationTooltip06" required>
+                        <option value="Available">Available</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Not Available">Not Available</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="validationTooltip07">Product</label>
+                <select class="custom-select" id="validationTooltip07" required>
+                </select>
+                <div class="invalid-feedback">Example invalid custom select Product</div>
+                <label for="validationTooltip16">Sub Product</label>
+                <select class="custom-select" id="validationTooltip16" required>
+                </select>
+                <div class="invalid-feedback">Example invalid custom select Sub Product</div>
+                <label for="validationTooltip09">Vendor</label>
+                <select class="custom-select" id="validationTooltip09" required>
+                </select>
+                <div class="invalid-feedback">Example invalid custom select type</div>
+            </div>
+            <button class="btn btn-primary" type="submit" onclick="submited()">Submit post</button>
+            <button class="btn btn-success" id="updateButton" style="visibility: hidden;">Update post</button>
+        </form>
+        <br />
+        <h2>Data node</h2>
+        <div class="form-group">
+            <label for="validationTooltip10">Type</label>
+            <select class="custom-select" id="validationTooltip10" onchange="optionSelect(this)" required>
+                <option value="Product">Product</option>
+                <option value="Vendor">Vendor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="validationTooltip08">Find</label>
+            <select class="custom-select" id="validationTooltip08" required>
+            </select>
+            <label for="validationTooltip17" style="visibility: hidden;" id="subProductLabel">Sub Product</label>
+            <select class="custom-select" id="validationTooltip17" style="visibility: hidden;" required>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit" onclick="fetchData()">Fetch</button>
+        <hr />
+        <div id="list-render">
+        </div>
+    </div>
+
+    <!-- page-wrapper -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script> -->
+    <script src="admin.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> -->
+</body>
+
+</html>
