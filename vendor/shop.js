@@ -92,8 +92,8 @@ let fetchData = (datanode) => {
             returnArr.push(item);
         })
         // returnArr.pop()
-        console.log(returnArr)
-        console.log(returnArr3)
+        // console.log(returnArr)
+        // console.log(returnArr3)
         return returnArr;
     };
     database.ref(dataToFetch.parent).child(dataToFetch.child).once("value").then((snapshot) => {
@@ -113,8 +113,8 @@ let fetchData = (datanode) => {
                     returnArr3.push({ name, value })
                 }
                 returnArr3.pop()
-                console.log(returnArr2)
-                console.log(returnArr3)
+                // console.log(returnArr2)
+                // console.log(returnArr3)
                 returnArr3.forEach(childItem => {
                     let newDiv1 = document.createElement("div")
                     newDiv1.setAttribute("class", "card mb-3")
@@ -178,7 +178,7 @@ let fetchData = (datanode) => {
                         let imgGalaryImg = document.createElement("img")
                         imgGalaryImg.setAttribute("class", "imgGalaryImg")
                         imgGalaryImg.setAttribute("onclick", `imgGalaryfunc(this,"${childItem.name}")`)
-                        console.log(j)
+                        // console.log(j)
                         if (j == 0 && childItem.value.img !== " " && childItem.value.img.length>2) {
                             console.log(j,childItem.value.img)
                             imgGalaryImg.setAttribute("src", childItem.value.img)
@@ -186,19 +186,19 @@ let fetchData = (datanode) => {
                             imgGalaryRowDiv.appendChild(imgGalaryColumnDiv)
                         }
                         else if (j == 1 && childItem.value.img1 !== " " && childItem.value.img1.length>2) {
-                            console.log(j,childItem.value.img1)
+                            // console.log(j,childItem.value.img1)
                             imgGalaryImg.setAttribute("src", childItem.value.img1)
                             imgGalaryColumnDiv.appendChild(imgGalaryImg)
                             imgGalaryRowDiv.appendChild(imgGalaryColumnDiv)
                         }
                         else if (j == 2 && childItem.value.img2 !== " " && childItem.value.img2.length>2) {
-                            console.log(j,childItem.value.img2)
+                            // console.log(j,childItem.value.img2)
                             imgGalaryImg.setAttribute("src", item.img2)
                             imgGalaryColumnDiv.appendChild(imgGalaryImg)
                             imgGalaryRowDiv.appendChild(imgGalaryColumnDiv)
                         }
                         else if (j == 3 && childItem.value.img3 !== " " && childItem.value.img3.length>2) {
-                            console.log(j,childItem.value.img3)
+                            // console.log(j,childItem.value.img3)
                             imgGalaryImg.setAttribute("src", item.img3)
                             imgGalaryColumnDiv.appendChild(imgGalaryImg)
                             imgGalaryRowDiv.appendChild(imgGalaryColumnDiv)

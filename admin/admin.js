@@ -274,7 +274,7 @@ let fetchData = () => {
             item.key = childSnapshot.key;
             returnArr.push(item);
         });
-        console.log(returnArr)
+        // console.log(returnArr)
         return returnArr;
     };
         dataToFetch = {

@@ -82,6 +82,7 @@ let fetchData = () => {
             }
             returnArr2.push(item);
         })
+        localStorage.setItem("collectedData", JSON.stringify(returnArr2))
         return returnArr2;
     };
 
@@ -195,13 +196,13 @@ let fetchData = () => {
                     newH5.setAttribute("title", grandChildItem.value.pCategory)
                     let newH5Text = document.createTextNode(grandChildItem.value.pName)
 
-                    let newP=document.createElement("p")
+                    let newP = document.createElement("p")
                     newP.setAttribute("class", "card-text")
                     newP.setAttribute("title", grandChildItem.value.pHead)
                     let newPText = document.createTextNode(grandChildItem.value.pHead)
 
                     let newP1 = document.createElement("p")
-                    newP1.setAttribute("class", "card-text")
+                    newP1.setAttribute("class", "card-text displayNoneClass")
                     newP1.setAttribute("title", grandChildItem.value.pType)
                     let newP1Text = document.createTextNode(grandChildItem.value.pDesc)
 
@@ -211,21 +212,22 @@ let fetchData = () => {
                     let newP2Text = document.createTextNode("Price : " + grandChildItem.value.price)
 
                     let newP3 = document.createElement("p")
-                    newP3.setAttribute("class", "card-text")
+                    newP3.setAttribute("class", "card-text displayNoneClass")
                     newP3.setAttribute("title", grandChildItem.value.pCode)
                     let newP3Text = document.createTextNode("Product Code : " + grandChildItem.value.pCode)
 
                     let newP4 = document.createElement("p")
-                    newP4.setAttribute("class", "card-text")
+                    newP4.setAttribute("class", "card-text displayNoneClass")
                     newP4.setAttribute("title", grandChildItem.value.vendor)
 
                     let newP5 = document.createElement("p")
-                    newP5.setAttribute("class", "card-text")
+                    newP5.setAttribute("class", "card-text displayNoneClass")
 
                     let small1 = document.createElement("small")
                     let small1Text = document.createTextNode(`Sizes : ${grandChildItem.value.sizes}`)
 
                     let small2 = document.createElement("small")
+                    small2.setAttribute("class","displayNoneClass")
                     let small2Text = document.createTextNode(`Stock : ${grandChildItem.value.stock}`)
 
                     let cartButton = document.createElement("button")
@@ -233,6 +235,10 @@ let fetchData = () => {
                     cartButton.setAttribute("onclick", "addToCart(this.parentNode)")
                     let cartButtonText = document.createTextNode("Add To Cart")
 
+                    let productRevButton = document.createElement("button")
+                    productRevButton.setAttribute("class", "add-to-cart btn btn-success")
+                    productRevButton.setAttribute("onclick", `viewProduct("${grandChildItem.name}","${grandChildItem.value.pCategory}","${grandChildItem.value.pType}")`)
+                    let productRevButtonText = document.createTextNode("View Product")
 
                     newDiv.appendChild(newDiv2)
                     galaryContainerDiv.appendChild(newImg)
@@ -261,6 +267,8 @@ let fetchData = () => {
                     newDiv3.appendChild(newP5)
                     cartButton.appendChild(cartButtonText)
                     newDiv3.appendChild(cartButton)
+                    productRevButton.appendChild(productRevButtonText)
+                    newDiv3.appendChild(productRevButton)
                     // }
                 })
             })
@@ -299,12 +307,14 @@ let spanClick = (data) => {
     mainComp.style.overflow = "auto"
 }
 
+
 setTimeout(function () {
     document.getElementById("Loading").style.display = "none"
     document.getElementById("carouselExampleCaptions").style.visibility = "visible"
     document.getElementsByClassName("card-deck")[0].style.visibility = "visible"
     window.scrollTo(0, 0)
 }, 3000);
+
 
 
 
@@ -347,9 +357,9 @@ var shoppingCart = (function () {
         cart = JSON.parse(sessionStorage.getItem('shoppingCart')) || JSON.parse(localStorage.getItem('shoppingCart'))
     }
     if (sessionStorage.getItem("shoppingCart") != null
-    //  && 
-    //  localStorage.getItem("shoppingCart") != null
-     ) {
+        //  && 
+        //  localStorage.getItem("shoppingCart") != null
+    ) {
         loadCart();
     }
 
@@ -449,16 +459,29 @@ var shoppingCart = (function () {
 })();
 
 
+let viewProduct = (id, category, type) => {
+    let collectedData = JSON.parse(localStorage.getItem("collectedData"))
+    // console.log(id, category, type, collectedData)
+    collectedData.map((item, i) => {
+        if (item.parent === type) {
+            let itemCategory = item[category]
+            localStorage.removeItem("viewProductData")
+            localStorage.setItem("viewProductData", JSON.stringify(itemCategory[id]))
+        }
+        location = "./productPage/productPage.html"
+    })
+
+}
 let addToCart = (data) => {
-    console.log(data)
+    // console.log(data.parentNode)
     let name = data.children[0].innerHTML
     let img = data.parentNode.children[0].children[0].src
     let cardId = data.parentNode.children[0].children[0].id
     let parent = data.children[0].title
     let ancestor = data.children[1].title
-    let price = data.children[2].title
-    let pCode = data.children[3].title
-    let vendor = data.children[4].title
+    let price = data.children[3].title
+    let pCode = data.children[4].title
+    let vendor = data.children[5].title
     shoppingCart.addItemToCart(name, price, 1, img, cardId, parent, ancestor, vendor, pCode);
     displayCart();
 }
@@ -545,7 +568,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         logOutButt.setAttribute("type", "Button")
         logOutButt.setAttribute("class", "btn btn-outline-light")
         logOutButt.setAttribute("onclick", "signingOut()")
-        parentElem.setAttribute("class","form-inline signinOut")
+        parentElem.setAttribute("class", "form-inline signinOut")
         let logOutButtText = document.createTextNode("Log Out")
         logOutButt.appendChild(logOutButtText)
         parentElem.appendChild(logOutButt)
@@ -621,7 +644,7 @@ database.ref("UsersNames").on("child_added", function (snapshot) {
 function login() {
     var emailI = document.getElementById('email');
     var pass = document.getElementById('password');
-    if (attemp == 0) {       
+    if (attemp == 0) {
         var email = emailI.value;
         var password = pass.value;
         firebase.auth().signInWithEmailAndPassword(email, password)
@@ -647,15 +670,15 @@ function login() {
         alert("You Are Already Sign In Please Wait");
     }
 }
-let forgotPass=()=>{
+let forgotPass = () => {
     let newEmail = document.getElementById("email").value;
     firebase.auth().sendPasswordResetEmail(newEmail).then(function () {
         alert("Please check your email for password resetting")
     })
-    .catch(function (error) {
-        console.log(error.message);
-        alert(error.message)
-    })
+        .catch(function (error) {
+            console.log(error.message);
+            alert(error.message)
+        })
 }
 function signingOut() {
     firebase.auth().signOut().then(function () {

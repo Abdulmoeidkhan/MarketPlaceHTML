@@ -113,6 +113,7 @@ body {
   transition-delay: 0.3s;
   z-index: 2;
   border-color: #871400;
+  background-color: #fff;
 }
 
 .page-wrapper.toggled #show-sidebar {
@@ -500,7 +501,7 @@ section .section-title {
 }
 
 #footer {
-  background: #871400 !important;
+  background: #d4380d  !important;
 }
 
 #footer h5 {
@@ -701,6 +702,7 @@ section .section-title {
 .modal-content {
   animation-name: zoom;
   animation-duration: 0.6s;
+  background-color: #fff2e7;
 }
 
 @media only screen and (max-width: 700px) {
@@ -710,6 +712,14 @@ section .section-title {
   .carousel-inner {
     height: 550px;
   }
+  #carouselExampleCaptions {
+    margin-bottom: 10px;
+    height: 300px;
+  }
+  .d-block {
+    height: 300px;
+}
+
 }
 
 .carousel-indicators {
@@ -877,10 +887,11 @@ section .section-title {
   padding: 0px;
 }
 .navBarDescription{
-  color:#fff
+  color:#fff;
+  text-transform: initial;
 }
 .bg-dark{
-  background-color: #871400  !important;
+  background-color: #d4380d  !important;
 }
 .navbar-dark .navbar-nav .nav-link:hover,.navbar-dark .navbar-nav .nav-link,.navbar-dark .navbar-nav .nav-link.active,.navbar-dark .navbar-brand:hover,.navbar-dark .navbar-brand{
   color:#fff;
@@ -904,15 +915,29 @@ section .section-title {
   color:#000
 }
 .bg-info{
-  background-color: #871400 !important;
+  background-color: #d4380d  !important;
 }
 .btn-info{
-  background-color: #871400 !important;
-  border-color:#871400 !important ;
+  background-color: #d4380d  !important;
+  border-color:#d4380d  !important ;
 }
 .text-info{
-  color:#871400 !important;
+  color:#d4380d  !important;
 }
 .rounded-circle img{
   width:85px;
+}
+.sidebar-dropdown{
+  box-shadow: 1px 1px 3px #d4380d;
+}
+.displayNoneClass{
+  display: none;
+}
+.signup-signin-btn-class{
+  color:#f67844;
+  border:1px solid #f67844;
+}
+.signup-signin-btn-sec-class{
+  color:#d43922;
+  border:1px solid #d43922;
 }

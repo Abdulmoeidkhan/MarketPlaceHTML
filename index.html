@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Primary Meta Tags -->
     <title>Calibre.Culture</title>
-    <meta name="title" content="Calibre.Culture">
+    <meta name="title" content="Calibre.store">
     <meta name="description"
         content="Calibre.Culture is your one stop shopping hub, at Calibre.Culture we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
         Calibre.Culture is a Pakistani online shopping hub that provides quality products at the lowest of prices all over Pakistan, protecting both, the money and the privacy of their customers. Calibre.Culture has the latest fashion items to give u the styling edge that you have always desired.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://Calibre.Culture/">
+    <meta property="og:url" content="https://Calibre.store/">
     <meta property="og:title" content="Calibre.Culture">
     <meta property="og:description"
         content="Calibre.Culture is your one stop shopping hub, at Calibre.Culture we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
@@ -23,13 +23,13 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://Calibre.Culture/">
+    <meta property="twitter:url" content="https://Calibre.store/">
     <meta property="twitter:title" content="Calibre.Culture">
     <meta property="twitter:description"
         content="Calibre.Culture is your one stop shopping hub, at Calibre.Culture we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
         Calibre.Culture is a Pakistani online shopping hub that provides quality products at the lowest of prices all over Pakistan, protecting both, the money and the privacy of their customers. Calibre.Culture has the latest fashion items to give u the styling edge that you have always desired.">
     <meta property="twitter:image" content="./Calbre.store.png">
-    <link rel="icon" href="./CCLogo.png"" type="image/icon">
+    <link rel="icon" href="./CCLogo.png"" type=" image/icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -84,10 +84,10 @@
                         <input class="form-control" id="password" placeholder="Password" name="Password"
                             type="password" />
                     </div>
-                    <button class="btn btn-outline-primary" type="button" onclick="login()">
+                    <button class="btn btn-outline-default signup-signin-btn-class" type="button" onclick="login()">
                         Login
                     </button>
-                    <button class="btn btn-outline-success" type="button" onclick="forgotPass()">
+                    <button class="btn btn-outline-default signup-signin-btn-sec-class" type="button" onclick="forgotPass()">
                         Forget Password
                     </button>
                 </div>
@@ -107,7 +107,7 @@
                         <input class="form-control" id="pass2" placeholder="Confirm Password" name="ConfirmPassword"
                             type="password" />
                     </div>
-                    <button class="btn btn-outline-primary" onclick="signUp()" type="button">
+                    <button class="btn btn-outline-default signup-signin-btn-class" onclick="signUp()" type="button">
                         Sign Up
                     </button>
                 </div>
@@ -190,9 +190,23 @@
                         </li> -->
                         <li class="sidebar-dropdown">
                             <a href="#">
-                                <i class="fa fa-male"></i>
+                                <img src="icons/CC All Icons-Health.png" width="30px" />
+                                <span>Health</span>
+                                <span class="badge badge-pill badge-danger">6</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <img src="icons/CC All Icons-Food.png" width="30px" />
+                                <span>Food</span>
+                                <span class="badge badge-pill badge-danger">6</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <img src="icons/CC All Icons-Men.png" width="30px" />
                                 <span>Men's Fashion</span>
-                                <span class="badge badge-pill badge-danger">2</span>
+                                <span class="badge badge-pill badge-danger">6</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
@@ -201,10 +215,43 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">Men's Accessories</a>
+                                        <a href="#">Men's Glasses</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Men's Wallet</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Men's Watches</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Men's Belts</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Men's Shoes</a>
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <img src="icons/CC All Icons-Women.png" width="30px" />
+                                <span>Women's Fashion</span>
+                                <span class="badge badge-pill badge-danger">6</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <img src="icons/CC All Icons-Cart.png" width="30px" />
+                                <span>My Cart</span>
+                                <span class="badge badge-pill badge-danger">6</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <img src="icons/CC All Icons-Tools.png" width="30px" />
+                                <span>Tools</span>
+                                <span class="badge badge-pill badge-danger">6</span>
+                            </a>
                         </li>
                         <!-- <li class="sidebar-dropdown">
                             <a href="#">
@@ -222,7 +269,7 @@
                                 </ul>
                             </div>
                         </li> -->
-                        <li class="header-menu">
+                        <!-- <li class="header-menu">
                             <span>Our Vendors</span>
                         </li>
                         <li>
@@ -260,7 +307,7 @@
                                 <span class="badge badge-pill badge-primary">Premium</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <!-- sidebar-menu  -->
             </div>
@@ -291,7 +338,7 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <!-- <span class="navbar-toggler-icon"></span> -->
                     <!-- <a class="btn btn-light navbar-toggler-icon" href="#"> -->
-                        <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>
                     <!-- </a> -->
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -383,10 +430,16 @@
                     <div class="row text-center text-xs-center text-sm-left text-md-left">
                         <div class="col-xs-12 col-sm-8 col-md-8">
                             <h5>Description</h5>
-                            <p class="navBarDescription">Calibre.Culture is your one stop shopping hub, at Calibre.Culture we bring you the latest fashion apparel at the most discounted prices to give your fashion, the boost you need! Our vendors are determined to provide our customers with products of the highest quality at the lowest prices!
-                                Caliber is a Pakistani online shopping hub that provides quality clothing at the lowest of prices all over Pakistan, protecting both, the money and the privacy of their customers. Caliber has the latest fashion items to give u the styling edge that you have always desired.</p>
+                            <p class="navBarDescription">Calibre.Culture is your one stop shopping hub, at
+                                Calibre.Culture we bring you the latest fashion apparel at the most discounted prices to
+                                give your fashion, the boost you need! Our vendors are determined to provide our
+                                customers with products of the highest quality at the lowest prices!
+                                Caliber is a Pakistani online shopping hub that provides quality clothing at the lowest
+                                of prices all over Pakistan, protecting both, the money and the privacy of their
+                                customers. Caliber has the latest fashion items to give u the styling edge that you have
+                                always desired.</p>
                         </div>
-                         <div class="col-xs-12 col-sm-4 col-md-4">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
                             <h5>Quick links</h5>
                             <ul class="list-unstyled quick-links">
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
